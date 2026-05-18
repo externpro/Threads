@@ -3,6 +3,18 @@ project(Threads)
 string(JOIN "\n" EXT2
   "set(THREAD_PREFER_PTHREAD_FLAG ON)"
   "find_package(Threads REQUIRED BYPASS_PROVIDER)"
+  "if(CMAKE_THREAD_LIBS_INIT)"
+  "  list(APPEND reqVars CMAKE_THREAD_LIBS_INIT)"
+  "endif()"
+  "if(CMAKE_USE_WIN32_THREADS_INIT)"
+  "  list(APPEND reqVars CMAKE_USE_WIN32_THREADS_INIT)"
+  "endif()"
+  "if(CMAKE_USE_PTHREADS_INIT)"
+  "  list(APPEND reqVars CMAKE_USE_PTHREADS_INIT)"
+  "endif()"
+  "if(CMAKE_HP_PTHREADS_INIT)"
+  "  list(APPEND reqVars CMAKE_HP_PTHREADS_INIT)"
+  "endif()"
   ""
   )
 string(JOIN "\n" COND_OPEN
